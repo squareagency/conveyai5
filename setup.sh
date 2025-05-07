@@ -61,17 +61,6 @@ else
     echo -e "${GREEN}Found PostgreSQL$(psql --version | cut -d ' ' -f 3)${NC}"
 fi
 
-# Create project directories
-echo -e "\n${YELLOW}Creating project structure...${NC}"
-mkdir -p conveyai/backend/src/{api,middleware,utils}
-mkdir -p conveyai/backend/prisma
-mkdir -p conveyai/frontend/src/{components,contexts,hooks,pages,utils,assets/{css,img}}
-mkdir -p conveyai/uploads/{documents,temp}
-echo -e "${GREEN}Project directory structure created.${NC}"
-
-# Move to project directory
-cd conveyai
-
 # Create package.json files
 echo -e "\n${YELLOW}Setting up package.json files...${NC}"
 # Root package.json - get from artifact
