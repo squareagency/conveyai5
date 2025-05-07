@@ -1,7 +1,7 @@
 // src/api/title-searches/index.js
-import { Router } from 'express';
-import { authenticateUser, validateTenant } from '../../middleware/auth';
-import * as titleSearchController from './title-search.controller';
+const { Router } = require('express');
+const { authenticateUser, validateTenant } = require('../../middleware/auth');
+const titleSearchController = require('./title-search.controller');
 
 const router = Router();
 
@@ -11,4 +11,4 @@ router.post('/', authenticateUser, validateTenant, titleSearchController.perform
 // Get a specific title search
 router.get('/:id', authenticateUser, validateTenant, titleSearchController.getTitleSearch);
 
-export default router;
+module.exports = router;

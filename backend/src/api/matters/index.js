@@ -1,7 +1,7 @@
 // src/api/matters/index.js
-import { Router } from 'express';
-import { authenticateUser, validateTenant } from '../../middleware/auth';
-import * as matterController from './matter.controller';
+const { Router } = require('express');
+const { authenticateUser, validateTenant } = require('../../middleware/auth');
+const matterController = require('./matter.controller');
 
 const router = Router();
 
@@ -29,4 +29,4 @@ router.get('/:id/document-folders', authenticateUser, validateTenant, matterCont
 // Create document folder
 router.post('/:id/document-folders', authenticateUser, validateTenant, matterController.createDocumentFolder);
 
-export default router;
+module.exports = router;

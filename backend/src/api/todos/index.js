@@ -1,7 +1,7 @@
 // src/api/todos/index.js
-import { Router } from 'express';
-import { authenticateUser, validateTenant } from '../../middleware/auth';
-import * as todoController from './todo.controller';
+const { Router } = require('express');
+const { authenticateUser, validateTenant } = require('../../middleware/auth');
+const todoController = require('./todo.controller');
 
 const router = Router();
 
@@ -20,4 +20,4 @@ router.put('/:id', authenticateUser, validateTenant, todoController.updateTodo);
 // Mark a todo as completed
 router.put('/:id/complete', authenticateUser, validateTenant, todoController.completeTodo);
 
-export default router;
+module.exports = router;

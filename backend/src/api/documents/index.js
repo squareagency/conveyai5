@@ -1,8 +1,8 @@
 // src/api/documents/index.js
-import { Router } from 'express';
-import { authenticateUser, validateTenant } from '../../middleware/auth';
-import * as documentController from './document.controller';
-import multer from 'multer';
+const { Router } = require('express');
+const { authenticateUser, validateTenant } = require('../../middleware/auth');
+const documentController = require('./document.controller');
+const multer = require('multer');
 
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -25,4 +25,4 @@ router.put('/:id', authenticateUser, validateTenant, documentController.updateDo
 // Delete a document
 router.delete('/:id', authenticateUser, validateTenant, documentController.deleteDocument);
 
-export default router;
+module.exports = router;

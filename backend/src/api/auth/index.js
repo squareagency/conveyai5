@@ -1,6 +1,6 @@
 // src/api/auth/index.js
-import { Router } from 'express';
-import * as authController from './auth.controller';
+const { Router } = require('express');
+const authController = require('./auth.controller');
 
 const router = Router();
 
@@ -16,4 +16,4 @@ router.post('/forgot-password', authController.forgotPassword);
 // Reset password
 router.post('/reset-password', authController.resetPassword);
 
-export default router;
+module.exports = router;

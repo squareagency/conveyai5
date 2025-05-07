@@ -1,7 +1,7 @@
 // src/api/clients/index.js
-import { Router } from 'express';
-import { authenticateUser, validateTenant } from '../../middleware/auth';
-import * as clientController from './client.controller';
+const { Router } = require('express');
+const { authenticateUser, validateTenant } = require('../../middleware/auth');
+const clientController = require('./client.controller');
 
 const router = Router();
 
@@ -20,4 +20,4 @@ router.put('/:id', authenticateUser, validateTenant, clientController.updateClie
 // Verify client identity
 router.put('/:id/verify', authenticateUser, validateTenant, clientController.verifyClientIdentity);
 
-export default router;
+module.exports = router;

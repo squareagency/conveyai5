@@ -1,10 +1,10 @@
 // src/middleware/auth.js
-import jwt from 'jsonwebtoken';
-import { PrismaClient } from '@prisma/client';
+const jwt = require('jsonwebtoken');
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-export const authenticateUser = async (req, res, next) => {
+exports.authenticateUser = async (req, res, next) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
     
@@ -39,7 +39,7 @@ export const authenticateUser = async (req, res, next) => {
   }
 };
 
-export const validateTenant = async (req, res, next) => {
+exports.validateTenant = async (req, res, next) => {
   try {
     const { tenantId } = req.user;
     const requestDomain = req.headers['x-tenant-domain'];
