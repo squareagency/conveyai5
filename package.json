@@ -8,6 +8,7 @@
     "frontend"
   ],
   "scripts": {
+    "prepare": "node patch-buffer.js",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "start:backend": "npm run start --workspace=backend",
     "start:frontend": "npm run start --workspace=frontend",
@@ -28,13 +29,16 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "babel-jest": "^24.9.0",
+    "babel-jest": "^29.7.0",
     "concurrently": "^8.2.0"
   },
   "engines": {
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "@heroicons/react": "^2.2.0"
+    "@heroicons/react": "^1.0.6",
+    "chokidar": "3.5.1",
+    "jsonwebtoken": "^9.0.0",
+    "react-scripts": "^3.0.1"
   }
 }

@@ -1,3 +1,4 @@
+// src/components/layout/Sidebar.jsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
@@ -5,11 +6,11 @@ import {
   HomeIcon, 
   DocumentTextIcon, 
   UserGroupIcon, 
-  ClipboardDocumentListIcon, 
+  ChecklistIcon,
   ArchiveBoxIcon,
-  Cog6ToothIcon,
-  ArrowRightOnRectangleIcon
-} from '@heroicons/react/24/outline';
+  CogIcon,
+  LogoutIcon
+} from '@heroicons/react/outline';
 
 const Sidebar = ({ open }) => {
   const { user, tenant, logout } = useAuth();
@@ -41,9 +42,9 @@ const Sidebar = ({ open }) => {
           <NavItem to="/" icon={<HomeIcon className="h-6 w-6" />} label="Dashboard" open={open} />
           <NavItem to="/matters" icon={<DocumentTextIcon className="h-6 w-6" />} label="Matters" open={open} />
           <NavItem to="/contacts" icon={<UserGroupIcon className="h-6 w-6" />} label="Contacts" open={open} />
-          <NavItem to="/to-do-lists" icon={<ClipboardDocumentListIcon className="h-6 w-6" />} label="To-Do Lists" open={open} />
+          <NavItem to="/to-do-lists" icon={<ChecklistIcon className="h-6 w-6" />} label="To-Do Lists" open={open} />
           <NavItem to="/archived-matters" icon={<ArchiveBoxIcon className="h-6 w-6" />} label="Archived Matters" open={open} />
-          <NavItem to="/settings" icon={<Cog6ToothIcon className="h-6 w-6" />} label="Settings" open={open} />
+          <NavItem to="/settings" icon={<CogIcon className="h-6 w-6" />} label="Settings" open={open} />
         </ul>
       </nav>
       
@@ -52,7 +53,7 @@ const Sidebar = ({ open }) => {
           onClick={logout}
           className="flex items-center text-gray-300 hover:text-white w-full"
         >
-          <ArrowRightOnRectangleIcon className="h-6 w-6" />
+          <LogoutIcon className="h-6 w-6" />
           {open && <span className="ml-2">Log out</span>}
         </button>
       </div>
